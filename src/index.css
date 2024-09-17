@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Circular Std";
+  src: url("fonts/CircularStd-Book.woff2") format("woff2"),
+    url("fonts/CircularStd-Book.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  src: url("fonts/CircularStd-Medium.woff2") format("woff2"),
+    url("fonts/CircularStd-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  src: url("fonts/CircularStd-Bold.woff2") format("woff2"),
+    url("fonts/CircularStd-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  /* color variables */
+  --white: #ffffff;
+  --primary-blue: #4b40ee;
+  --secondary-blue: #1a243a;
+  --primary-green: #67bf6b;
+  --primary-red: #d93025;
+  --primary-gray: #6f7177;
+  --hover-gray: rgb(63 63 70);
+  --secondary-gray: #bdbebf;
+
+  background-color: var(--white);
+
+  @apply font-circular;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
