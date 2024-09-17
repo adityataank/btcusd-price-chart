@@ -45,3 +45,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}

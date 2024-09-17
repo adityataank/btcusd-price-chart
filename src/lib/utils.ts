@@ -1,4 +1,5 @@
 import { twMerge, ClassNameValue } from "tailwind-merge";
+import { ChartDataProps } from "./types";
 
 export function cn(...inputs: ClassNameValue[]) {
   return twMerge(inputs);
@@ -38,4 +39,20 @@ export function parsePriceChange(
     priceChange < 0 ? "text-primary-red" : "text-primary-green"; // setting the text color based on change in price.
 
   return { priceChange: formattedPriceChange, priceChangeColor };
+}
+
+export function parseChartData(
+  dataArray: [number, number][]
+): ChartDataProps[] {
+  const parsedArray = dataArray.map((item) => {
+    const datetime = new Date(item[0]).toLocaleString();
+    const price = parseFloat(item[1]?.toFixed(2));
+    return {
+      timestamp: item[0],
+      value: price,
+      displayPrice: formatNumber(price),
+      datetime,
+    };
+  });
+  return parsedArray;
 }

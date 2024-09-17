@@ -34,6 +34,7 @@ export const TIMEFRAMES = [
   {
     label: "max",
     value: "max",
+    disabled: true,
   },
 ];
 

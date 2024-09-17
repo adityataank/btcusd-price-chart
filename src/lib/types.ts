@@ -20,11 +20,20 @@ export type CoinProps = null | {
     price_change_24h: number;
     price_change_percentage_24h: number;
   };
+  description: {
+    en: string;
+  };
 };
 
 export type TimeFrameProps = {
   label: string;
   value: number | string;
+  disabled?: boolean;
+};
+
+export type HistoricalDataProps = {
+  prices: ChartDataProps[];
+  volumes: ChartDataProps[];
 };
 
 export type PriceChartContextProps = {
@@ -34,6 +43,19 @@ export type PriceChartContextProps = {
   setActiveTab: (tab: string) => void;
   coinData: CoinProps;
   isFetching: boolean;
+  historicalData: HistoricalDataProps;
 };
 
 export type PriceChangeProps = React.HTMLProps<HTMLParagraphElement>;
+
+export type ChartDataProps = {
+  timestamp: number;
+  value: number;
+};
+
+export type ComponentMapTypes = { [key: string]: React.ReactElement };
+
+export type CrossHairCoordinateTypes = {
+  x: number;
+  y: number;
+};

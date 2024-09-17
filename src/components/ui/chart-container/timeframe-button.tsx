@@ -5,14 +5,21 @@ import { PriceChartContext } from "../../price-chart";
 import { PriceChartContextProps, TimeFrameProps } from "../../../lib/types";
 
 import { cn } from "../../../lib/utils";
+import { toast } from "sonner";
 
 function TimeFrameButton(props: TimeFrameProps) {
-  const { label } = props;
+  const { label, disabled } = props;
   const { activeTimeframe, setActiveTimeframe, isFetching } = useContext(
     PriceChartContext
   ) as PriceChartContextProps;
 
   const handleClick = () => {
+    if (disabled) {
+      toast.info(
+        "Upgrade to a premium plan to gain comprehensive access to all historical data."
+      );
+      return;
+    }
     setActiveTimeframe(props);
   };
 

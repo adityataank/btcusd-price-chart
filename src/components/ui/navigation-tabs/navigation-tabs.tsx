@@ -15,7 +15,7 @@ function NavigationTabs({ className }: DivElementProps) {
   return (
     <div
       className={cn(
-        "flex pl-[50px] pr-[60px] border-b border-b-[#EFF1F3]",
+        "flex gap-[10px] pl-[50px] pr-[60px] border-b border-b-[#EFF1F3]",
         className
       )}
     >

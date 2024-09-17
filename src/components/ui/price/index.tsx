@@ -20,7 +20,7 @@ function Price(props: DivElementProps) {
   ) as PriceChartContextProps;
 
   if (!coinData) {
-    return <></>;
+    return null;
   }
 
   const {

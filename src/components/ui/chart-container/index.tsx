@@ -1,9 +1,11 @@
+import Chart from "./chart";
 import ChartTools from "./chat-tools";
 
 function ChartContainer() {
   return (
-    <div className="px-[60px] pr-[19%]">
+    <div className="flex flex-col gap-[28px] h-full">
       <ChartTools />
+      <Chart />
     </div>
   );
 }
