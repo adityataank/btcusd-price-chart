@@ -13,7 +13,7 @@ const TOOLS = [
 
 function GeneralTools() {
   const handleClick = () => {
-    toast.info("Feature under development");
+    toast.info("Feature under development.");
   };
 
   return (
