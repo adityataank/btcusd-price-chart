@@ -56,3 +56,15 @@ export function parseChartData(
   });
   return parsedArray;
 }
+
+export function calculatePriceChange(
+  cmp: number | undefined,
+  initialPrice: number | undefined
+): [number, number] {
+  if (cmp && initialPrice) {
+    const priceDifference = cmp - initialPrice;
+    const percentageDifference = (priceDifference / cmp) * 100;
+    return [priceDifference, percentageDifference];
+  }
+  return [0, 0];
+}

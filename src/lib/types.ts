@@ -44,6 +44,9 @@ export type PriceChartContextProps = {
   coinData: CoinProps;
   isFetching: boolean;
   historicalData: HistoricalDataProps;
+  displayPrice: number;
+  displayPriceChange: number;
+  displayPercentageChange: number;
 };
 
 export type PriceChangeProps = React.HTMLProps<HTMLParagraphElement>;

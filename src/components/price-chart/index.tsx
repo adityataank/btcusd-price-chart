@@ -15,7 +15,7 @@ import {
 } from "../../lib/types";
 import { REQUEST } from "../../lib/request";
 import { API_ROUTES } from "../../lib/api-routes";
-import { parseChartData } from "../../lib/utils";
+import { calculatePriceChange, parseChartData } from "../../lib/utils";
 import UnderDevelopment from "../ui/under-development";
 
 export const PriceChartContext = createContext<PriceChartContextProps | null>(
@@ -79,6 +79,13 @@ function PriceChart() {
     }
   }, [activeTimeframe?.value]);
 
+  // Showing the price data for ( current date - selected timefrmae )
+  const displayPrice = historicalData?.prices?.[0]?.value;
+  const [displayPriceChange, displayPercentageChange] = calculatePriceChange(
+    coinData?.market_data?.current_price?.usd,
+    displayPrice
+  );
+
   const context = {
     activeTimeframe,
     setActiveTimeframe,
@@ -87,6 +94,9 @@ function PriceChart() {
     coinData,
     isFetching,
     historicalData,
+    displayPrice,
+    displayPriceChange,
+    displayPercentageChange,
   };
 
   const selectedTabComponent = ComponentMap[activeTab] ?? <UnderDevelopment />;

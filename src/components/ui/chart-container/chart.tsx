@@ -27,7 +27,7 @@ function Chart() {
       y: 0,
     });
   const [hoveredValue, setHoveredValue] = useState("");
-  const { historicalData } = useContext(
+  const { historicalData, displayPriceChange } = useContext(
     PriceChartContext
   ) as PriceChartContextProps;
 
@@ -83,6 +83,9 @@ function Chart() {
     );
   };
 
+  const color = displayPriceChange < 0 ? "#D9302550" : "#E8E7FF";
+  const strokeColor = displayPriceChange < 0 ? "#D93025" : "#4B40EE";
+
   return (
     <div
       className="h-full border-b border-[#E2E4E7] relative"
@@ -99,8 +102,8 @@ function Chart() {
           ref={chartRef}
         >
           <defs width="100%">
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="15%" stopColor="#E8E7FF" stopOpacity={1} />
+            <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="15%" stopColor={color} stopOpacity={1} />
               <stop offset="85%" stopColor="#FFFFFF" stopOpacity={0} />
             </linearGradient>
           </defs>
@@ -115,8 +118,8 @@ function Chart() {
           <Area
             dataKey="value"
             strokeWidth={2}
-            stroke="#4b40ee"
-            fill="url(#colorUv)"
+            stroke={strokeColor}
+            fill="url(#colorPrice)"
             activeDot={false}
           />
           <Tooltip
