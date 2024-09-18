@@ -11,3 +11,5 @@
 - `cd btcusd-price-chart`
 - `npm install`
 - `npm run dev`
+
+Live working URL - [https://btcusd-price-chart.netlify.app](https://btcusd-price-chart.netlify.app/)
